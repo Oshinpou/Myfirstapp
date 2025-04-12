@@ -1,0 +1,23 @@
+# Gradle files
+.gradle/
+build/
+
+# Local configuration
+local.properties
+
+# IDE settings
+.idea/
+*.iml
+
+# APKs
+*.apk
+
+# Logs and caches
+*.log
+*.cache
+captures/
+
+# Android Studio specific
+/.gradle
+/.idea
+.DS_Store
