@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myfirstapp">
 
-    <!-- Permissions must be declared here, before <application> -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
@@ -10,6 +9,11 @@
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         
+        <!-- Include AdMob App ID metadata from a separate XML -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
