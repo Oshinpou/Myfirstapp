@@ -1,19 +1,6 @@
 package com.example.myfirstapp;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-}
-
-// MainActivity.java
-
-import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
 import android.content.SharedPreferences;
@@ -27,7 +14,6 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
-import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Replace with your layout file
+        setContentView(R.layout.activity_main);
 
         // Initialize AdMob SDK
         MobileAds.initialize(this, initializationStatus -> {});
@@ -80,12 +66,12 @@ public class MainActivity extends AppCompatActivity {
     private void showRewardedAd() {
         if (rewardedAd != null) {
             rewardedAd.show(MainActivity.this, rewardItem -> {
-                int rewardAmount = rewardItem.getAmount(); // e.g., 1 point
+                int rewardAmount = rewardItem.getAmount();
                 addPointsToUser(rewardAmount);
-                loadRewardedAd(); // Load next ad
+                loadRewardedAd();
             });
         } else {
-            loadRewardedAd(); // Try to load again if not ready
+            loadRewardedAd();
         }
     }
 
@@ -101,6 +87,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        handler.removeCallbacks(adRunnable); // Stop ads on destroy
+        handler.removeCallbacks(adRunnable);
     }
 }
